@@ -5,19 +5,30 @@
 	iframe{width:1px; height:1px; display:inline-block}
 	#aheui{display:none}
 	#main{width:100%; height:100%; margin:0; padding:0}
+	#belief{font-family: sans-serif; font-size:12vmin; color:white; font-weight:bold; width:100%; height:100%; position:absolute; left:0; top:0; z-index:999; text-align: center; justify-content:center; align-items:center; display:none}
+	#belief span{font-size: 48vmin;}
+
 </style>
 <script>
 window.onload=function(){
+	var v=1
 	var aheui=document.getElementById('aheui')
+	var score=document.getElementById('score')
+	var belief=document.getElementById('belief')
 	setTimeout(function a(){
 		var iframe=document.createElement('iframe')
 		iframe.setAttribute('src', 'https://www.youtube.com/embed/-1IN066ZYEI?autoplay=true&start=2')
 		iframe.setAttribute('frameborder', 0)
 		iframe.setAttribute('allowfullscreen', 'allowfullscreen')
 		aheui.appendChild(iframe)
+		if(++v>18){
+			belief.style.display='flex'
+			score.textContent=v
+		}
 		setTimeout(a, 3000)
 	}, 3000)
 }
 </script>
 <div id='aheui'></div>
+<div id='belief'><div><span id="score">11</span><br>밯망희</div></div>
 <iframe id='main' src='https://www.youtube.com/embed/-1IN066ZYEI?autoplay=true' frameborder=0 allowfullscreen></iframe>
